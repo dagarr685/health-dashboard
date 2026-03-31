@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  background: #f5f5f7;
+  color: #1d1d1f;
   min-height: 100vh;
+}
+
+.app { min-height: 100vh; }
+
+/* Header */
+.header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky; top: 0; z-index: 100;
+  padding: 0 24px;
+}
+.header-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+}
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo-icon { font-size: 20px; }
+.logo-text { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
+.header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.data-tag { font-size: 12px; background: #EAF3DE; color: #3B6D11; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.btn-outline {
+  background: transparent; border: 1px solid #d1d1d6;
+  border-radius: 8px; padding: 7px 14px; font-size: 13px;
+  cursor: pointer; color: #1d1d1f;
+}
+.btn-outline:hover { background: #f5f5f7; }
+.btn-demo {
+  background: #f5f5f7; border: 1px solid #d1d1d6;
+  border-radius: 8px; padding: 7px 14px; font-size: 13px;
+  cursor: pointer; color: #1d1d1f;
+}
+
+/* Main */
+.main { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+/* Empty state */
+.empty {
+  text-align: center; padding: 60px 20px;
+  background: white; border-radius: 16px;
+  border: 1px solid #e5e5e5;
+}
+.empty-icon { font-size: 48px; margin-bottom: 16px; }
+.empty h2 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+.empty p { font-size: 15px; color: #6e6e73; max-width: 400px; margin: 0 auto 28px; line-height: 1.6; }
+.steps { display: flex; flex-direction: column; gap: 10px; max-width: 340px; margin: 0 auto 28px; text-align: left; }
+.step-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: #3a3a3c; }
+.step-num {
+  background: #f5f5f7; border: 1px solid #e5e5e5;
+  border-radius: 50%; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; flex-shrink: 0; margin-top: 1px;
+}
+.empty-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn-demo-lg {
+  background: #f5f5f7; border: 1px solid #d1d1d6;
+  border-radius: 10px; padding: 10px 20px; font-size: 14px;
+  cursor: pointer; color: #1d1d1f; font-weight: 500;
+}
+.btn-primary {
+  background: #0071e3; border: none;
+  border-radius: 10px; padding: 10px 20px; font-size: 14px;
+  cursor: pointer; color: white; font-weight: 500;
+}
+.btn-primary:hover { background: #0077ed; }
+
+.error { color: #E24B4A; font-size: 13px; margin: 12px 0; text-align: center; }
+
+/* Section title */
+.section-title {
+  font-size: 12px; font-weight: 600; color: #6e6e73;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+/* Metric grid */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px; margin-bottom: 24px;
+}
+.metric-card {
+  background: white; border-radius: 12px;
+  border: 1px solid #e5e5e5; padding: 14px 16px;
+}
+.metric-label { font-size: 12px; color: #6e6e73; margin-bottom: 6px; }
+.metric-value { font-size: 24px; font-weight: 600; color: #1d1d1f; line-height: 1; }
+.metric-unit { font-size: 12px; color: #6e6e73; font-weight: 400; margin-left: 3px; }
+.badge {
+  display: inline-block; padding: 3px 8px;
+  border-radius: 20px; font-size: 11px; font-weight: 500;
+  margin-top: 6px;
+}
+
+/* Rings */
+.ring-row {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.ring-card {
+  flex: 1; min-width: 160px;
+  background: white; border-radius: 14px;
+  border: 1px solid #e5e5e5; padding: 20px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.ring-label { font-size: 13px; font-weight: 500; color: #6e6e73; margin-bottom: 8px; }
+.ring-sub { font-size: 12px; color: #6e6e73; margin-top: 6px; }
+
+/* Chart cards */
+.chart-card {
+  background: white; border-radius: 14px;
+  border: 1px solid #e5e5e5; padding: 20px;
+  margin-bottom: 20px;
+}
+.chart-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px; flex-wrap: wrap; gap: 8px;
+}
+.chart-title { font-size: 15px; font-weight: 600; color: #1d1d1f; }
+.chart-sub { font-size: 12px; color: #6e6e73; }
+.tabs { display: flex; gap: 4px; }
+.tab {
+  font-size: 12px; padding: 4px 10px; border-radius: 20px;
+  cursor: pointer; border: 1px solid #e5e5e5;
+  color: #6e6e73; background: transparent;
+}
+.tab.active { background: #f5f5f7; color: #1d1d1f; border-color: #d1d1d6; font-weight: 500; }
+
+/* Legend */
+.legend-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #6e6e73; }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+/* Sleep bars */
+.sleep-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.sleep-date { font-size: 12px; color: #6e6e73; width: 40px; flex-shrink: 0; }
+.sleep-track {
+  flex: 1; height: 12px; border-radius: 6px;
+  overflow: hidden; background: #f5f5f7;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
+.sleep-val { font-size: 12px; color: #6e6e73; width: 32px; text-align: right; flex-shrink: 0; }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Responsive */
+@media (max-width: 600px) {
+  .main { padding: 20px 16px; }
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  .ring-row { flex-direction: column; }
 }
