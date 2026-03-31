@@ -2,12 +2,12 @@ import React, { useState, useRef } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale, LinearScale, PointElement, LineElement,
-  BarElement, Title, Tooltip, Legend, Filler
+  BarElement, ArcElement, Title, Tooltip, Legend, Filler
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 import './App.css';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend, Filler);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend, Filler, ArcElement);
 
 function groupByDate(arr, agg = 'avg') {
   const map = {};
