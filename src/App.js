@@ -1,13 +1,7 @@
 import React, { useState, useRef } from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale, LinearScale, PointElement, LineElement,
-  BarElement, ArcElement, Title, Tooltip, Legend, Filler
-} from 'chart.js';
-import { Bar, Line } from 'react-chartjs-2';
+import { Chart as ChartJS } from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
 import './App.css';
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend, Filler, ArcElement);
 
 function groupByDate(arr, agg = 'avg') {
   const map = {};
@@ -269,14 +263,13 @@ export default function App() {
             </div>
             {error && <p className="error">{error}</p>}
             <div className="empty-actions">
-              <button className="btn-demo-lg" onClick={() => setData(generateDemoData())}>Try with demo data</button>
+              <button className="btn-demo-lg" onClick={() => { setError(''); setData(generateDemoData()); }}>Try with demo data</button>
               <button className="btn-primary" onClick={() => fileRef.current.click()}>Import Health data</button>
             </div>
           </div>
         ) : (
           <>
             {error && <p className="error">{error}</p>}
-
             <div className="section-title">Today's overview</div>
             <div className="metric-grid">
               {[
