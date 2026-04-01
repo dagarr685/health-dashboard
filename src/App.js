@@ -179,7 +179,8 @@ export default function App() {
   const strain = calcStrain(latestCals, latestSteps);
   const recInfo = recovery !== null ? recoveryInfo(recovery) : null;
 
-  const totalSleep = data ? data.sleep.filter(r => !r.stage.includes('Awake')).reduce((a, r) => a + r.mins, 0) : 0;
+  const lastSleepDate = data && data.sleep.length ? [...new Set(data.sleep.map(r => r.d))].sort().slice(-1)[0] : null;
+  const totalSleep = data && lastSleepDate ? data.sleep.filter(r => r.d === lastSleepDate && !r.stage.includes('Awake')).reduce((a, r) => a + r.mins, 0) : 0;
   const sleepHrs = (totalSleep / 60).toFixed(1);
 
   const nHR = hrRange === '7d' ? 7 : hrRange === '14d' ? 14 : 30;
